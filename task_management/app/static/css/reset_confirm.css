@@ -1,0 +1,61 @@
+/* styles.css */
+
+/* Form container */
+.form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Heading style */
+.form h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Paragraph style */
+.form p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Input fields */
+.form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+label{
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+
+}
+p,h1,label:hover{
+    color: #007bff;
+}
+
+/* Button style */
+.form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the button */
+.form button[type="submit"]:hover {
+    background-color: #0056b3;
+}

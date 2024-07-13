@@ -1,0 +1,114 @@
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+/*body{
+    min-height: 100vh;
+    background: #edede9;
+}*/
+body {
+    background-image: url('../images/bg1.jpg');
+    background-size: cover; /* Adjust to your preference */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    /* Add other background properties as needed */
+}
+.navbar{
+    position: fixed;
+    top: 2rem; left: 2rem !important;
+    bottom: 2rem !important;
+    width: 7rem !important;
+    background: #e76f51;
+    border-radius: 1rem !important;
+    border-left: .5rem solid #e76f51 !important;
+    box-sizing: initial;
+    transition: width 0.5s !important;
+    overflow-x: hidden !important;
+}
+
+.navbar.active{
+    width: 30rem !important;
+}
+
+.navbar ul{
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 4rem .8rem 0 .3rem !important;
+}
+
+.navbar ul li{
+    list-style: none;
+    width: 100% !important;
+    border-radius: 1rem !important;
+}
+
+.navbar ul li.active{
+    background: #fff;
+}
+
+.navbar ul li a{
+    display: flex;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar ul li.active a{
+    color: #333;
+}
+
+.navbar ul li a .icon{
+    min-width: 6rem !important;
+    height: 6rem !important;
+    line-height: 7.5rem !important;
+    text-align: center !important;
+}
+
+.navbar ul li a .icon ion-icon{
+    font-size: 2.2rem !important;
+}
+
+.navbar ul li a .title{
+    padding-left: 1rem !important;
+    height: 6rem !important;
+    line-height: 6rem !important;
+    text-transform: capitalize !important;
+    font-size: 1.5rem !important;
+}
+
+.toggle{
+    position: fixed;
+    top: 2rem; right: 5rem;
+    height: 5rem;
+    width: 5rem;
+    background: #e76f51;
+    border-radius: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle ion-icon{
+    position: absolute;
+    color: #fff;
+    font-size: 3.4rem;
+    display: none;
+}
+
+.toggle ion-icon.open,
+.toggle.active ion-icon.close{
+    display: block;
+}
+
+.toggle ion-icon.close,
+.toggle.active ion-icon.open{
+    display: none;
+}
+

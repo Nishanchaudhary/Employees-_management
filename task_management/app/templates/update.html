@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>|update Task</title>
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="{% static 'css/add_task.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+       .alertMessage {
+            padding: 20px;
+            width: 75%;
+            font-size: 20px;
+            margin: auto;
+            border-radius: 5px;
+            box-shadow: rgb(0 0 0 / 25%) 0px 5px 10px 2px;
+        }
+        
+        .closeBtn {
+            float: right;
+            margin-left: 18px;
+            font-size: 30px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="alert ">
+    {% if messages %}
+    {% for message in messages  %}
+    <div class="alertMessage">
+      <span class="closeBtn" onclick="this.parentElement.style.display='none';">×</span>
+      <strong>Hi </strong>{{message}}
+    </div>
+    {% endfor %}  
+    {% endif %}
+  </div>
+    <!--section start-->
+    <section class="container">
+      <header>Update Employee Task</header>
+      <form method="POST" action="{% url 'update' data.id %}" class="form">   
+        {% csrf_token %}
+        <div class="input-box">
+          <label>Employee Name</label>
+          <input type="text" name="name" value="{{data.name}}" placeholder="Enter full name" required />
+        </div>
+
+        <div class="input-box">
+          <label>project Name</label>
+          <input type="text" name="project_name" value="{{data.project_name}}" placeholder="Enter project name" required />
+        </div>
+
+        <div class="input-box">
+          <label>Email Address</label>
+          <input type="email" name="email" value="{{data.email}}" placeholder="Enter email address" required />
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+            <label>Phone Number</label>
+            <input type="number" name="phone" value="{{data.phone}}" placeholder="Enter phone number" required />
+          </div>
+
+          <div class="input-box">
+            <label>Start Date</label>
+            <input type="date" name="s_date" value="{{data.s_date}}" placeholder="Enter birth date" required />
+          </div>
+
+          <div class="input-box">
+            <label>Last Date</label>
+            <input type="date" name="l_date" value="{{data.l_date}}" placeholder="Enter birth date" required />
+          </div>
+        </div>
+        <button type="submit" >Update</button>
+      </form>
+    </section>
+    <!--section  end-->
+
+     <!--navbar section start-->
+  <div class="navbar">
+    <ul>
+        <li class="list active">
+            <a href="{% url 'index' %}"><span class="icon"><ion-icon name="home"></ion-icon></span> <span class="title"> Home</span></a>
+        </li>
+        <li class="list">
+            <a href="{% url 'add_task' %}"><span class="icon"><ion-icon name="md-person-add"></ion-icon></span> <span class="title"> Add Employee_task</span></a>
+        </li>
+        <li class="list">
+            <a href="{% url 'viewtask' %}"><span class="icon"><ion-icon name="analytics"></ion-icon></span> <span class="title">Show Employee_task</span></a>
+        </li>
+        <li class="list">
+            <a href="{% url 'contact' %}"><span class="icon"><ion-icon name="chatbubbles"></ion-icon></span> <span class="title"> Get Touch</span></a>
+        </li>
+       
+        <li class="list">
+            <a href="{% url 'about' %}"><span class="icon"><ion-icon name="md-information-circle"></ion-icon></span> <span class="title"> About_us</span></a>
+        </li>
+
+        <li class="list">
+            <a href="#"><span class="icon"><ion-icon name="log-out"></ion-icon></span> <span class="title"> Signout</span></a>
+        </li>
+        <li class="list">
+            <a href="#"><span class="icon"><ion-icon name="md-log-in"></ion-icon></span> <span class="title"> Signin</span></a>
+        </li>
+    </ul>
+</div>
+<div class="toggle">
+    <ion-icon name="md-menu" class="open"></ion-icon>
+    <ion-icon name="close" class="close"></ion-icon>
+</div>
+<!--navbar section End-->
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+<script src="{% static 'js/script.js' %}"></script>  
+</body>
+</html>

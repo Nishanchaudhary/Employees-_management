@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>|contact</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <style>
+        .alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 28px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+    </style>
+   
+</head>
+<body>   
+
+<div class="form-container">
+    <div class="form">
+        <form method="POST" action="{% url 'contact' %}">
+        {% csrf_token %}
+        <span class="heading">Get in touch</span>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong>Hi!!</strong> {{message}}
+        </div>
+        {% endfor %} 
+        {% endif %}
+        <br>
+        <br>
+        <input placeholder="Name" type="text" class="input" name="name">
+        <input placeholder="Email" id="mail" type="email" class="input" name="email">
+        <textarea placeholder="Say Hello" rows="10" cols="30" id="message" name="message" class="textarea"></textarea>
+        <div class="button-container">
+         <input type="submit" value="send" class="send-button">
+        </div>
+        </form>
+    </div>
+</div>
+
+  <!--navbar section start-->
+  <div class="navbar">
+    <ul>
+        <li class="list active">
+            <a href="{% url 'index' %}"><span class="icon"><ion-icon name="home"></ion-icon></span> <span class="title"> Home</span></a>
+        </li>
+        <li class="list">
+            <a href="{% url 'add_task' %}"><span class="icon"><ion-icon name="md-person-add"></ion-icon></span> <span class="title"> Add Employee_task</span></a>
+        </li>
+        <li class="list">
+            <a href="{% url 'viewtask' %}"><span class="icon"><ion-icon name="analytics"></ion-icon></span> <span class="title">Show Employee_task</span></a>
+        </li>
+        <li class="list">
+            <a href="{% url 'contact' %}"><span class="icon"><ion-icon name="chatbubbles"></ion-icon></span> <span class="title"> Get Touch</span></a>
+        </li>
+       
+        <li class="list">
+            <a href="{% url 'about' %}"><span class="icon"><ion-icon name="md-information-circle"></ion-icon></span> <span class="title"> About_us</span></a>
+        </li>
+       
+        {% if request.user.is_authenticated %}
+        <li class="list">
+            <a href="{% url 'log_out' %}"><span class="icon"><ion-icon name="log-out"></ion-icon></span> <span class="title"> Signout</span></a>
+        </li>
+        {% else %}
+        <li class="list">
+            <a href="{% url 'log_in' %}"><span class="icon"><ion-icon name="md-log-in"></ion-icon></span> <span class="title"> Signin</span></a>
+        </li>
+        {% endif %}
+        
+    </ul>
+</div>
+<div class="toggle">
+    <ion-icon name="md-menu" class="open"></ion-icon>
+    <ion-icon name="close" class="close"></ion-icon>
+</div>
+<!--navbar section End-->
+
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+<script src="{% static 'js/script.js' %}"></script>  
+</body>
+</html>
